@@ -5,9 +5,9 @@ import re
 import pickle
 
 def matcher(string, pattern):
-  '''
-  Return the start and end index of any pattern present in the text.
-  '''
+    '''
+    Return the start and end index of any pattern present in the text.
+    '''
     match_list = []
     pattern = pattern.strip()
     seqMatch = SequenceMatcher(None, string, pattern, autojunk=False)
@@ -22,9 +22,9 @@ def matcher(string, pattern):
     return match_list, string
 
 def mark_sentence(s, match_list):
-  '''
-  Marks all the entities in the sentence as per the BIO scheme. 
-  '''
+    '''
+    Marks all the entities in the sentence as per the BIO scheme. 
+    '''
     word_dict = {}
     for word in s.split():
         word_dict[word] = 'O'
@@ -53,9 +53,9 @@ def clean(text):
     return text
 
 def create_data(df, filepath):
-  '''
-  The function responsible for the creation of data in the said format.
-  '''
+    '''
+    The function responsible for the creation of data in the said format.
+    '''
     with open(filepath , 'w') as f:
         for text, annotation in zip(df.text, df.annotation):
             text = clean(text)
